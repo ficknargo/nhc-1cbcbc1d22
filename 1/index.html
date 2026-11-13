@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>NEW HEIGHTS — Issue Nº01: The Office Issue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#ecebe5;--k:#0d0d0c;--r:#ff3b00;--g:1px solid var(--k)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--p);color:var(--k);font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;line-height:1.5;overflow-x:hidden}
+a{color:inherit}img{display:block;width:100%;height:100%;object-fit:cover}
+.A{font-family:Anton,Impact,sans-serif;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;font-weight:400}
+.S{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+.cap{font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.top{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:var(--g);position:sticky;top:0;background:var(--p);z-index:20}
+.top>*{padding:9px 12px;border-right:var(--g);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.top>*:last-child{border:0}
+.top a.bk{background:var(--k);color:var(--p);text-decoration:none;text-align:center;font-weight:700}.top a.bk:hover{background:var(--r)}
+@media(max-width:800px){.top{grid-template-columns:1fr 1fr}.top>.h{display:none}}
+/* cover */
+.cover{position:relative;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto 1fr auto;min-height:calc(100svh - 38px);border-bottom:var(--g)}
+.mast{grid-column:1/-1;grid-row:1;font-size:19.6vw;padding:1.2vw .6vw 0;white-space:nowrap;position:relative;z-index:3;mix-blend-mode:normal}
+.mast span{color:var(--r)}
+.cimg{grid-column:5/10;grid-row:1/4;position:relative;margin-top:7vw;border-left:var(--g);border-right:var(--g);overflow:hidden;z-index:1}
+.cimg img{filter:grayscale(1) contrast(1.25);transition:filter .8s}.cimg:hover img{filter:none}
+.cimg .tag{position:absolute;left:10px;bottom:10px;background:var(--r);color:#fff;padding:3px 7px}
+.lines{grid-column:1/5;grid-row:2/4;padding:18px 14px;display:flex;flex-direction:column;justify-content:flex-end;gap:22px;z-index:2}
+.lines h2{font-size:clamp(28px,3.6vw,58px)}.lines p{max-width:34ch}
+.lines .S{font-size:clamp(22px,2.4vw,36px);line-height:1.02;font-style:italic}
+.rgt{grid-column:10/13;grid-row:2/4;padding:18px 14px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;z-index:2}
+.price{font-size:clamp(70px,9vw,170px);color:var(--r)}
+.bar{height:48px;background:repeating-linear-gradient(90deg,var(--k) 0 2px,transparent 2px 4px,var(--k) 4px 5px,transparent 5px 8px,var(--k) 8px 11px,transparent 11px 12px);width:150px}
+.big-btn{display:block;background:var(--k);color:var(--p);text-decoration:none;padding:18px 16px;font-family:Anton,sans-serif;font-size:28px;text-transform:uppercase;line-height:1;transition:.15s}
+.big-btn:hover{background:var(--r);color:#fff;transform:translate(-4px,-4px);box-shadow:4px 4px 0 var(--k)}
+@media(max-width:900px){.cover{grid-template-columns:1fr 1fr}.mast{font-size:19.4vw}.cimg{grid-column:1/-1;grid-row:2;margin:0;height:70vh;border:0;border-top:var(--g)}.lines,.rgt{grid-column:auto/span 2;grid-row:auto}}
+/* ticker */
+.tick{border-bottom:var(--g);overflow:hidden;background:var(--r);color:#fff}
+.tick div{display:flex;width:max-content;animation:t 38s linear infinite}
+.tick span{font-family:Anton,sans-serif;font-size:42px;text-transform:uppercase;padding:6px 22px;white-space:nowrap}
+@keyframes t{to{transform:translateX(-50%)}}
+/* contents */
+.toc{display:grid;grid-template-columns:1fr 2fr;border-bottom:var(--g)}
+.toc h3{font-size:clamp(80px,13vw,230px);padding:12px;border-right:var(--g)}
+.toc ol{list-style:none}.toc li{border-bottom:var(--g)}.toc li:last-child{border:0}
+.toc a{display:grid;grid-template-columns:70px 1fr auto;gap:16px;padding:14px 16px;text-decoration:none;align-items:baseline}
+.toc a b{font-family:Anton,sans-serif;font-size:clamp(26px,3.4vw,52px);text-transform:uppercase;font-weight:400;line-height:1}
+.toc a:hover{background:var(--k);color:var(--p)}.toc a:hover em{color:var(--r)}
+.toc em{font-style:normal}
+@media(max-width:800px){.toc{grid-template-columns:1fr}.toc h3{border:0;border-bottom:var(--g)}}
+/* spreads */
+.spread{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:var(--g)}
+.spread .no{grid-column:1/2;border-right:var(--g);padding:12px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:Anton,sans-serif;font-size:40px;text-transform:uppercase}
+.spread .ph{grid-column:2/8;border-right:var(--g);min-height:80vh;overflow:hidden}
+.spread .tx{grid-column:8/13;padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.spread h4{font-size:clamp(56px,7.5vw,140px)}
+.spread .drop:first-letter{font-family:Anton,sans-serif;float:left;font-size:92px;line-height:.8;margin:4px 10px 0 0;color:var(--r)}
+.spread .cols{columns:2 200px;column-gap:20px;column-rule:var(--g)}
+.spread .cols p+p{margin-top:10px}
+.spread.flip .ph{grid-column:7/13;border-right:0;border-left:var(--g);order:3}.spread.flip .tx{grid-column:2/7;order:2}
+.pull{font-size:clamp(30px,3.4vw,54px);line-height:1;font-style:italic;border-top:4px solid var(--k);padding-top:14px}
+@media(max-width:900px){.spread{grid-template-columns:1fr}.spread .no{writing-mode:horizontal-tb;transform:none;border:0;border-bottom:var(--g)}.spread .ph,.spread.flip .ph{grid-column:1;min-height:60vh;border:0;order:0}.spread .tx,.spread.flip .tx{grid-column:1}}
+/* uses */
+.uses{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:var(--g)}
+.uses article{border-right:var(--g);border-bottom:var(--g);padding:18px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:background .2s,color .2s}
+.uses article:nth-child(3n){border-right:0}.uses article:nth-last-child(-n+3){border-bottom:0}
+.uses article h5{font-size:clamp(44px,5vw,86px);position:relative;z-index:2}
+.uses article p{position:relative;z-index:2;max-width:40ch}
+.uses article img{position:absolute;inset:0;opacity:0;transition:opacity .3s;filter:grayscale(1) contrast(1.3)}
+.uses article:hover{color:#fff}.uses article:hover img{opacity:1}.uses article:hover:after{content:"";position:absolute;inset:0;background:rgba(255,59,0,.55);mix-blend-mode:multiply}
+@media(max-width:800px){.uses{grid-template-columns:1fr}.uses article{border-right:0!important;border-bottom:var(--g)!important}}
+/* figs */
+.figs{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:var(--g)}
+.figs figure{border-right:var(--g);border-bottom:var(--g);padding:8px;cursor:zoom-in}
+.figs figure:nth-child(6n){border-right:0}
+.figs figure div{aspect-ratio:1;overflow:hidden}.figs img{filter:grayscale(1);transition:.3s}.figs figure:hover img{filter:none;transform:scale(1.04)}
+.figs figcaption{margin-top:6px}
+.figs .w2{grid-column:span 2}.figs .w2 div{aspect-ratio:2.02}
+@media(max-width:800px){.figs{grid-template-columns:repeat(2,1fr)}.figs figure:nth-child(n){border-right:var(--g)}.figs figure:nth-child(2n){border-right:0}}
+/* rate */
+.rate{display:grid;grid-template-columns:1.3fr 1fr;border-bottom:var(--g)}
+.rate .n{font-size:clamp(140px,26vw,480px);padding:0 10px;color:var(--k);border-right:var(--g);line-height:.85;padding-top:20px}
+.rate .n sup{font-size:.3em;vertical-align:top;color:var(--r)}
+.rate .d{padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.rate dl{display:grid;grid-template-columns:auto 1fr;border-top:var(--g)}.rate dt,.rate dd{border-bottom:var(--g);padding:10px 0}.rate dd{text-align:right;font-weight:700}
+@media(max-width:800px){.rate{grid-template-columns:1fr}.rate .n{border:0;border-bottom:var(--g)}}
+.back{background:var(--k);color:var(--p);padding:20px 12px 120px;position:relative}
+.back a.huge{display:block;font-size:17.5vw;text-decoration:none;line-height:.82}.back a.huge:hover{color:var(--r)}
+.back .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:30px;border-top:1px solid #444;padding-top:12px}
+.lb{position:fixed;inset:0;background:rgba(13,13,12,.96);display:none;z-index:60;align-items:center;justify-content:center;cursor:zoom-out;padding:3vw}.lb.on{display:flex}.lb img{width:auto;height:auto;max-width:100%;max-height:90vh}
+.lb p{position:absolute;left:12px;bottom:10px;color:var(--p)}
+.cursor{position:fixed;left:0;top:0;width:14px;height:14px;background:var(--r);pointer-events:none;z-index:99;mix-blend-mode:multiply;transform:translate(-50%,-50%)}
+@media(hover:none){.cursor{display:none}}
+</style></head><body>
+<div class="cursor" id="cur"></div>
+<header class="top cap"><span>New Heights Studio</span><span class="h">Issue Nº01 — The Office Issue</span><span class="h">The Heights, Jersey City NJ</span><span class="h">$75–99/hr</span><a class="h" href="https://www.instagram.com/newheightsstudiojc/" target="_blank" rel="noopener">IG @newheightsstudiojc</a><a class="bk" href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">BOOK ON PEERSPACE ↗</a></header>
+
+<section class="cover">
+ <h1 class="mast A">New<span>/</span>Heights</h1>
+ <div class="cimg"><img src="../img/13.webp" alt="Rainbow over downtown Manhattan and One World Trade from the studio window" fetchpriority="high"><span class="tag cap">Fig. 13 — View from the office</span></div>
+ <div class="lines">
+  <p class="cap">Nº01 · Photo / Video / Podcast / Production</p>
+  <h2 class="A">500 sq ft of daylight &amp; white brick</h2>
+  <p class="S">Why everyone just calls it <em>“the office.”</em></p>
+  <p>A natural-light loft in The Heights, Jersey City, with the downtown Manhattan skyline in the window. Fifteen-foot ceilings, vintage white brick, mounted backdrops, lighting included.</p>
+ </div>
+ <div class="rgt">
+  <div><p class="cap">Inside: rates, p.07</p><div class="price A">$75</div><p class="cap">per hour · 3 hr minimum</p></div>
+  <div><div class="bar" aria-hidden="true"></div><p class="cap" style="margin:6px 0 14px">0 75099 00001 · JC/NYC</p>
+  <a class="big-btn" href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">Book the office ↗</a></div>
+ </div>
+</section>
+
+<div class="tick" aria-hidden="true"><div><span>Photo ✶ Video ✶ Production ✶ Podcast ✶ Content ✶ Meetings ✶ Workshops ✶ Manhattan views ✶ Vintage white brick ✶ 15 ft ceilings ✶</span><span>Photo ✶ Video ✶ Production ✶ Podcast ✶ Content ✶ Meetings ✶ Workshops ✶ Manhattan views ✶ Vintage white brick ✶ 15 ft ceilings ✶</span></div></div>
+
+<section class="toc"><h3 class="A">Con&shy;tents</h3><ol>
+ <li><a href="#light"><span class="cap">p.02</span><b>The light</b><em class="cap">Windows on two sides</em></a></li>
+ <li><a href="#brick"><span class="cap">p.03</span><b>The brick</b><em class="cap">Backdrops &amp; materials</em></a></li>
+ <li><a href="#uses"><span class="cap">p.04</span><b>Six ways to use it</b><em class="cap">Photo → workshop</em></a></li>
+ <li><a href="#table"><span class="cap">p.05</span><b>The table</b><em class="cap">Seats 8</em></a></li>
+ <li><a href="#figs"><span class="cap">p.06</span><b>19 figures</b><em class="cap">Photo index</em></a></li>
+ <li><a href="#rate"><span class="cap">p.07</span><b>The rate</b><em class="cap">$75–99/hr</em></a></li>
+</ol></section>
+
+<section class="spread" id="light"><div class="no">02 — The Light</div><div class="ph"><img src="../img/04.webp" alt="Sunlit loft with brick, windows and lounge" loading="lazy"></div>
+<div class="tx"><div><p class="cap">Feature</p><h4 class="A">Dawn<br>to dusk.</h4></div>
+<div class="cols"><p class="drop">Large windows on two sides soak the room in natural light all day, with the downtown skyline sitting right there in the glass. One World Trade included, no extra charge.</p><p>When you want control, full-length heavy curtains black the room out completely — and double as a backdrop. Fifteen-foot ceilings leave room for overhead rigs on the included boom arms.</p></div>
+<p class="pull S">“Windows on two sides. Skyline on one.”</p></div></section>
+
+<section class="spread flip" id="brick"><div class="no">03 — The Brick</div><div class="ph"><img src="../img/18.webp" alt="Guitarist portrait against white brick" loading="lazy"></div>
+<div class="tx"><div><p class="cap">Texture</p><h4 class="A">Vintage<br>white<br>brick.</h4></div>
+<div class="cols"><p class="drop">A variety of mounted backdrops and materials sit against an exposed vintage white brick wall. Shoot clean, shoot raw, shoot both in one booking.</p><p>Lighting is part of the deal: Godox QS400 strobe, V860 speedlite + trigger, two GVM LED panels, C-stands, boom arms, a clamshell reflector and modifiers.</p></div>
+<p class="pull S">Gear is part of the booking.</p></div></section>
+
+<section class="uses" id="uses">
+ <article><img src="../img/t/02.webp" alt="" loading="lazy"><span class="cap">04.1</span><h5 class="A">Photo</h5><p>Portraits, fashion, product, editorial. Daylight or blackout, backdrops or brick.</p></article>
+ <article><img src="../img/t/16.webp" alt="" loading="lazy"><span class="cap">04.2</span><h5 class="A">Video</h5><p>Music videos, interviews, brand films, short-form. Total blackout on demand.</p></article>
+ <article><img src="../img/t/15.webp" alt="" loading="lazy"><span class="cap">04.3</span><h5 class="A">Production</h5><p>Small crews and full production days for up to 10 people.</p></article>
+ <article><img src="../img/t/03.webp" alt="" loading="lazy"><span class="cap">04.4</span><h5 class="A">Podcast</h5><p>Roundtables at the 8-seat table. Bring your own mics and recorders.</p></article>
+ <article><img src="../img/t/19.webp" alt="" loading="lazy"><span class="cap">04.5</span><h5 class="A">Content</h5><p>Reels, TikToks, YouTube, product and social. A dozen looks, one booking.</p></article>
+ <article><img src="../img/t/14.webp" alt="" loading="lazy"><span class="cap">04.6</span><h5 class="A">Meetings</h5><p>Workshops, pre-production and team sessions. Fast wifi, coffee station.</p></article>
+</section>
+
+<section class="spread" id="table"><div class="no">05 — The Table</div><div class="ph"><img src="../img/03.webp" alt="Conference table with leather chairs" loading="lazy"></div>
+<div class="tx"><div><p class="cap">Meetings · Podcasts · Roundtables</p><h4 class="A">Eight<br>seats.</h4></div>
+<div class="cols"><p class="drop">The extendable conference table seats eight — for podcasts, interviews, roundtables, pre-pro and the kind of meeting that actually feels like going to the office.</p><p>Production desk with LG monitor and KRK audio monitors. Bring your own microphones and recorders.</p></div>
+<p class="pull S">Meet at the office.</p></div></section>
+
+<section class="figs" id="figs"></section>
+
+<section class="rate" id="rate"><div class="n A"><sup>$</sup>75<span style="color:var(--r)">–</span>99</div>
+<div class="d"><div><p class="cap">p.07 — The rate</p><p class="S" style="font-size:38px;line-height:1;margin-top:10px">Per hour. Lighting and a host/assistant included.</p></div>
+<dl class="cap"><dt>Minimum</dt><dd>3 hours</dd><dt>Capacity</dt><dd>Up to 10</dd><dt>Size</dt><dd>500 sq ft</dd><dt>Ceilings</dt><dd>15 ft</dd><dt>Booking</dt><dd>Peerspace only</dd></dl>
+<a class="big-btn" href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">Check dates on Peerspace ↗</a></div></section>
+
+<footer class="back"><p class="cap">Back cover</p><a class="huge A" href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">Book the<br>office ↗</a>
+<div class="row cap"><span>© New Heights Studio · The Heights, Jersey City NJ · Address shared via Peerspace</span><span><a href="https://www.instagram.com/newheightsstudiojc/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/newheightsstudiojc" target="_blank" rel="noopener">Facebook</a> · <a href="../">All concepts</a></span></div></footer>
+<div class="lb" id="lb"><img alt=""><p class="cap"></p></div>
+<script>
+const caps=["Seamless + strobe","Black backdrop by the window","The 8-seat table","Wide, sunlit","Lounge","Production desk","Desk, KRK monitors","Marshall + Harley","Harley detail","Keys + curtains","Rooftops","Freight elevator","Rainbow over downtown","Full room","Tethered shoot","Drum session","Wicker chair","Guitarist on brick","Couch portrait"];
+const F=document.getElementById('figs'),lb=document.getElementById('lb');
+caps.forEach((c,i)=>{const n=String(i+1).padStart(2,'0');const f=document.createElement('figure');if(i==3||i==12)f.className='w2';f.innerHTML=`<div><img src="../img/t/${n}.webp" alt="${c}" loading="lazy"></div><figcaption class="cap">Fig. ${n} — ${c}</figcaption>`;f.onclick=()=>{lb.querySelector('img').src=`../img/${n}.webp`;lb.querySelector('p').textContent=`Fig. ${n} — ${c}`;lb.classList.add('on')};F.appendChild(f)});
+lb.onclick=()=>lb.classList.remove('on');
+const cu=document.getElementById('cur');addEventListener('pointermove',e=>{cu.style.left=e.clientX+'px';cu.style.top=e.clientY+'px'});
+</script></body></html>

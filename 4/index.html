@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>New Heights Studio — You Are the Light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;800&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#040404;color:#f1ece4;overflow:hidden;font-family:"Space Mono",monospace;font-size:12px}
+a{color:inherit}
+canvas{position:fixed;inset:0;display:block;touch-action:none;cursor:none}
+.ui{position:fixed;inset:0;pointer-events:none;z-index:2}
+.ui a,.ui button{pointer-events:auto}
+.logo{position:absolute;left:28px;top:24px;font-family:Unbounded;font-weight:800;font-size:15px;letter-spacing:.02em}
+.logo small{display:block;font-family:"Space Mono";font-weight:400;font-size:11px;opacity:.6;letter-spacing:.1em;margin-top:3px}
+.book{position:absolute;right:24px;top:20px;display:inline-flex;gap:10px;align-items:center;text-decoration:none;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:12px 20px;text-transform:uppercase;letter-spacing:.14em;backdrop-filter:blur(6px);background:rgba(0,0,0,.25);transition:.2s}
+.book:hover{background:#ffcf8a;color:#000;border-color:#ffcf8a}
+.book i{width:8px;height:8px;border-radius:50%;background:#ffcf8a;box-shadow:0 0 12px #ffcf8a}
+.hero{position:absolute;left:28px;bottom:30px;max-width:min(980px,92vw);transition:opacity .6s}
+.hero h1{font-family:Unbounded;font-weight:800;font-size:clamp(46px,9vw,150px);line-height:.86;letter-spacing:-.03em;text-transform:uppercase;mix-blend-mode:difference}
+.hero h1 span{display:block;-webkit-text-stroke:1.5px #f1ece4;color:transparent}
+.hero p{max-width:46ch;margin-top:16px;line-height:1.6;opacity:.85}
+.hint{position:absolute;right:28px;bottom:30px;text-align:right;line-height:1.8;opacity:.7;text-transform:uppercase;letter-spacing:.14em;font-size:11px}
+.hint b{color:#ffcf8a;font-weight:400}
+.cap{position:absolute;left:50%;bottom:34px;transform:translate(-50%,20px);opacity:0;transition:.4s;text-align:center;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);padding:16px 22px;border:1px solid rgba(255,255,255,.15);border-radius:14px;min-width:300px}
+.cap.on{opacity:1;transform:translate(-50%,0)}.cap h2{font-family:Unbounded;font-weight:300;font-size:20px;margin-bottom:6px}
+.cap .row{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.cap button,.cap a{border:1px solid rgba(255,255,255,.4);background:none;color:#fff;font:inherit;padding:8px 14px;border-radius:999px;cursor:pointer;text-decoration:none;text-transform:uppercase;letter-spacing:.1em}
+.cap a{background:#ffcf8a;color:#000;border-color:#ffcf8a}
+.info{position:absolute;left:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;font-size:11px;text-transform:uppercase;letter-spacing:.16em;opacity:.55}
+.info span:before{content:"— ";color:#ffcf8a}
+.dot{position:fixed;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;box-shadow:0 0 18px 6px rgba(255,207,138,.8);pointer-events:none;z-index:3;left:50%;top:50%;mix-blend-mode:screen}
+.ring{position:fixed;width:54px;height:54px;margin:-27px 0 0 -27px;border:1px solid rgba(255,220,170,.5);border-radius:50%;pointer-events:none;z-index:3;left:50%;top:50%;transition:width .2s,height .2s,margin .2s}
+.ring.hot{width:84px;height:84px;margin:-42px 0 0 -42px;border-color:#ffcf8a}
+.foot{position:absolute;left:28px;right:28px;bottom:8px;display:flex;justify-content:space-between;font-size:10px;opacity:.4;letter-spacing:.1em}
+.fallback{display:none;position:fixed;inset:0;overflow:auto;padding:90px 20px 40px;z-index:1;columns:3 260px;gap:10px}.fallback img{width:100%;margin-bottom:10px;display:block}
+.nogl .fallback{display:block}.nogl canvas,.nogl .dot,.nogl .ring,.nogl .hint{display:none}.nogl{overflow:auto}
+@media(max-width:700px){.info{display:none}.hint{display:none}.book{top:auto;bottom:auto;right:auto;left:20px;top:64px;padding:10px 16px}.hero{left:20px;bottom:40px}.logo{left:20px}.dot,.ring{display:none}}
+@media(hover:none){canvas{cursor:auto}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head><body>
+<div class="fallback" id="fb"></div>
+<div class="ui">
+ <div class="logo">NEW HEIGHTS STUDIO<small>THE HEIGHTS · JERSEY CITY · “THE OFFICE”</small></div>
+ <a class="book" href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener"><i></i>Book on Peerspace</a>
+ <div class="info"><span>Natural-light loft</span><span>Manhattan skyline view</span><span>Vintage white brick</span><span>Mounted backdrops &amp; materials</span><span>8-seat table</span><span>$75–99 / hr · 3 hr min</span></div>
+ <div class="hero" id="hero"><h1>You are<span>the light.</span></h1><p>Nineteen frames from a natural-light loft in Jersey City, hung in the dark. Move to light them. Photo, video, production, podcast (bring your mics), content and meetings — booked only on Peerspace.</p></div>
+ <div class="hint"><b>Move</b> — be the light<br><b>Drag / scroll</b> — turn the room<br><b>Click</b> — step into a frame</div>
+ <div class="cap" id="cap"><h2 id="capT">—</h2><div id="capS">—</div><div class="row"><button id="back">← Back to the dark</button><a href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">Book this light</a></div></div>
+ <div class="foot"><span>© New Heights Studio · <a href="https://www.instagram.com/newheightsstudiojc/" target="_blank" rel="noopener">IG</a> · <a href="https://www.facebook.com/newheightsstudiojc" target="_blank" rel="noopener">FB</a></span><span><a href="../">All concepts</a></span></div>
+</div>
+<div class="ring" id="ring"></div><div class="dot" id="dot"></div>
+<script>
+window.CAPS=[["Seamless + strobe","Black seamless, Godox QS400 on a boom"],["Black backdrop","By the window, daylight spill"],["The table","Conference table, seats 8 — podcasts & meetings"],["The loft","500 sq ft, 15 ft ceilings, windows on two sides"],["The lounge","Modular, all of it usable on camera"],["Production desk","LG monitor + KRK audio monitors"],["The desk","Tether, edit, review"],["Marshall + Harley","Props with attitude"],["The Harley","2005 Harley-Davidson, add-on for shoots"],["Keys + curtains","Full-length blackout curtains"],["Rooftops","The Heights through the glass"],["Freight elevator","Easy load-in"],["The view","Rainbow over downtown Manhattan, One World Trade"],["The whole room","Brick, gallery wall, pink couch"],["On set","Tethered shoot in progress"],["Drum session","Music & video by the windows"],["Wicker chair","A moody corner in soft window light"],["White brick","Exposed vintage white brick portrait"],["Couch portrait","Natural-light portrait session"]];
+const fb=document.getElementById('fb');CAPS.forEach((c,i)=>{const im=new Image();im.loading='lazy';im.src=`../img/t/${String(i+1).padStart(2,'0')}.webp`;im.alt=c[0];fb.appendChild(im)});
+</script>
+<script type="module">
+import * as THREE from 'three';
+const pad=n=>String(n).padStart(2,'0');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'})}catch(e){document.body.classList.add('nogl');throw e}
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.setSize(innerWidth,innerHeight);
+renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;renderer.autoClear=false;
+document.body.prepend(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x040404);scene.fog=new THREE.FogExp2(0x040404,.055);
+const cam=new THREE.PerspectiveCamera(innerWidth<700?72:58,innerWidth/innerHeight,.1,100);
+const rig=new THREE.Group();scene.add(rig);rig.add(cam);
+scene.add(new THREE.AmbientLight(0xffffff,.1));
+const spot=new THREE.SpotLight(0xffe2b8,90,0,.33,.55,1.6);spot.position.set(0,0,0);cam.add(spot);cam.add(spot.target);
+const warm=new THREE.PointLight(0xff7a3a,6,9,1.5);scene.add(warm);
+// gallery ring: two rows
+const R=8.2,H=2.35,gap=.5,loader=new THREE.TextureLoader(),meshes=[];
+const sizes={1:[1600,1313],2:[1600,2216],3:[1600,1134],4:[1600,1067],5:[1600,1127],6:[1600,1067],7:[1600,879],8:[1600,1067],9:[1600,2400],10:[1600,2226],11:[1600,1067],12:[1600,1128],13:[1600,2148],14:[1600,1067],15:[1600,1200],16:[1600,1132],17:[1600,1732],18:[1600,1067],19:[1600,1220]};
+const order=[13,4,18,1,14,3,16,9,5,19,6,2,15,8,17,10,11,7,12];
+const rows=[order.slice(0,10),order.slice(10)];
+const wall=new THREE.Group();scene.add(wall);
+rows.forEach((row,ri)=>{const ws=row.map(n=>{const[a,b]=sizes[n];const h=ri?H*.92:H*1.08;return[n,h*a/b,h]});
+ const total=ws.reduce((s,w)=>s+w[1]+gap,0),scale=(2*Math.PI*R)/total;let acc=ri?.6:0;
+ ws.forEach(([n,w,h])=>{const ang=(acc+(w+gap)/2)*scale/R;acc+=w+gap;
+  const tex=loader.load(`../img/t/${pad(n)}.webp`);tex.colorSpace=THREE.SRGBColorSpace;tex.anisotropy=4;
+  const m=new THREE.Mesh(new THREE.PlaneGeometry(w*Math.min(1,scale*.98),h*Math.min(1,scale*.98)),new THREE.MeshStandardMaterial({map:tex,roughness:.55,metalness:.05}));
+  const y=ri?-1.38:1.32;m.position.set(Math.sin(ang)*R,y+(Math.sin(n*7.3)*.18),-Math.cos(ang)*R);m.lookAt(0,m.position.y,0);m.userData={n,ang};
+  // thin frame
+  const fr=new THREE.Mesh(new THREE.PlaneGeometry(m.geometry.parameters.width+.08,m.geometry.parameters.height+.08),new THREE.MeshStandardMaterial({color:0x111111,roughness:.9}));
+  fr.position.copy(m.position).multiplyScalar(1.004);fr.lookAt(0,fr.position.y,0);wall.add(fr);wall.add(m);meshes.push(m)})});
+// floor for spill
+const floor=new THREE.Mesh(new THREE.CircleGeometry(14,64),new THREE.MeshStandardMaterial({color:0x0d0b0a,roughness:.35,metalness:.4}));floor.rotation.x=-Math.PI/2;floor.position.y=-3.1;scene.add(floor);
+// dust motes
+const N=900,pg=new THREE.BufferGeometry(),pa=new Float32Array(N*3);for(let i=0;i<N;i++){const r=Math.random()*7.5,a=Math.random()*6.283;pa[i*3]=Math.cos(a)*r;pa[i*3+1]=(Math.random()-.5)*6;pa[i*3+2]=Math.sin(a)*r}
+pg.setAttribute('position',new THREE.BufferAttribute(pa,3));
+const dust=new THREE.Points(pg,new THREE.PointsMaterial({map:(()=>{const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d'),r=g.createRadialGradient(32,32,0,32,32,32);r.addColorStop(0,'rgba(255,255,255,1)');r.addColorStop(.4,'rgba(255,255,255,.35)');r.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=r;g.fillRect(0,0,64,64);return new THREE.CanvasTexture(c)})(),color:0xffd9a0,size:.05,transparent:true,opacity:.55,blending:THREE.AdditiveBlending,depthWrite:false}));scene.add(dust);
+// light-leak shader overlay
+const leakS=new THREE.Scene(),leakC=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+const leakM=new THREE.ShaderMaterial({transparent:true,depthTest:false,blending:THREE.AdditiveBlending,uniforms:{t:{value:0},m:{value:new THREE.Vector2(.5,.5)},a:{value:innerWidth/innerHeight},k:{value:0}},
+ vertexShader:`varying vec2 v;void main(){v=uv;gl_Position=vec4(position.xy,0.,1.);}`,
+ fragmentShader:`varying vec2 v;uniform float t,a,k;uniform vec2 m;
+ float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+ float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+1.),f.x),f.y);}
+ void main(){vec2 p=v;float e1=smoothstep(.55,0.,distance(p,vec2(-.05,.15+.1*sin(t*.21))));
+  float e2=smoothstep(.5,0.,distance(p,vec2(1.05,.85+.12*cos(t*.17))));
+  float fl=n(vec2(p.x*3.+t*.15,p.y*2.-t*.1));
+  vec3 c=vec3(1.,.35,.08)*e1*(.55+.6*fl)+vec3(1.,.62,.25)*e2*(.45+.6*fl);
+  vec2 d=(p-m)*vec2(a,1.);float halo=exp(-dot(d,d)*9.)*.10;c+=vec3(1.,.8,.55)*halo;
+  c+=vec3(1.,.5,.2)*k*.25;
+  float g=(h(p*vec2(913.,577.)+t)-.5)*.035;c+=g;
+  gl_FragColor=vec4(c,1.);}`});
+leakS.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),leakM));
+// interaction
+let yaw=0,vy=0,tgtYaw=0,mx=0,my=0,smx=0,smy=0,dragging=false,lx=0,moved=0,focus=null,zoom=0;
+const ray=new THREE.Raycaster(),ndc=new THREE.Vector2(),dot=document.getElementById('dot'),ring=document.getElementById('ring');
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth*2-1;my=-(e.clientY/innerHeight*2-1);dot.style.left=ring.style.left=e.clientX+'px';dot.style.top=ring.style.top=e.clientY+'px';
+ if(dragging&&!focus){const dx=e.clientX-lx;lx=e.clientX;moved+=Math.abs(dx);vy=-dx*.0035}});
+addEventListener('pointerdown',e=>{if(e.target.closest('a,button'))return;dragging=true;lx=e.clientX;moved=0});
+addEventListener('pointerup',e=>{dragging=false;if(moved<6&&!e.target.closest('a,button'))pick(e)});
+addEventListener('wheel',e=>{if(!focus)vy+=(e.deltaY+e.deltaX)*.00045},{passive:true});
+const cap=document.getElementById('cap'),hero=document.getElementById('hero');
+function pick(e){ndc.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight*2-1));ray.setFromCamera(ndc,cam);const hit=ray.intersectObjects(meshes)[0];
+ if(hit){focus=hit.object;const c=CAPS[focus.userData.n-1];document.getElementById('capT').textContent=c[0];document.getElementById('capS').textContent=c[1];cap.classList.add('on');hero.style.opacity=0;
+  if(!focus.userData.hi){focus.userData.hi=1;loader.load(`../img/${pad(focus.userData.n)}.webp`,t=>{t.colorSpace=THREE.SRGBColorSpace;focus&&(meshes.find(m=>m.userData.n===focus.userData.n).material.map=t);})}}
+ else unfocus()}
+function unfocus(){focus=null;cap.classList.remove('on');hero.style.opacity=1}
+document.getElementById('back').onclick=unfocus;addEventListener('keydown',e=>{if(e.key==='Escape')unfocus()});
+// auto-drift
+const clock=new THREE.Clock();let camY=0;
+function loop(){const dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime;
+ smx+=(mx-smx)*.12;smy+=(my-smy)*.12;
+ if(focus){const a=focus.userData.ang;let d=((a-yaw+Math.PI)%(2*Math.PI)+2*Math.PI)%(2*Math.PI)-Math.PI;yaw+=d*.08;vy=0;camY+=(focus.position.y-camY)*.08;zoom+=(1-zoom)*.06}
+ else{if(!dragging)vy*=.94;yaw+=vy+(Math.abs(vy)<.0004?.0006:0);camY+=(smy*.6-camY)*.05;zoom+=(0-zoom)*.06}
+ rig.rotation.y=-yaw;cam.position.set(0,camY,0);
+ cam.position.z=-zoom*4.4;
+ cam.rotation.set(smy*.12*(1-zoom),-smx*.22*(1-zoom),0);
+ // spotlight aims where the cursor points
+ ndc.set(smx,smy);ray.setFromCamera(ndc,cam);const p=ray.ray.at(R*.95,new THREE.Vector3());cam.worldToLocal(p);spot.target.position.copy(p);
+ spot.angle=focus?.62:.33;spot.intensity=focus?120:90+Math.sin(t*9)*1.5;
+ warm.position.set(Math.sin(t*.3)*4,2.5,Math.cos(t*.3)*4);
+ dust.rotation.y=t*.015;dust.position.y=Math.sin(t*.2)*.2;
+ ray.setFromCamera(ndc,cam);ring.classList.toggle('hot',!!ray.intersectObjects(meshes)[0]);
+ leakM.uniforms.t.value=t;leakM.uniforms.m.value.set((smx+1)/2,(smy+1)/2);leakM.uniforms.k.value+=((focus?1:0)-leakM.uniforms.k.value)*.05;
+ renderer.clear();renderer.render(scene,cam);renderer.render(leakS,leakC);requestAnimationFrame(loop)}
+loop();
+addEventListener('resize',()=>{cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);leakM.uniforms.a.value=innerWidth/innerHeight});
+</script>
+<noscript><style>.fallback{display:block}</style></noscript>
+</body></html>

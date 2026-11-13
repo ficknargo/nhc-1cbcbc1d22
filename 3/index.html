@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>the office — NewHeights OS 98</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Permanent+Marker&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--face:#c3c3c3;--hi:#fff;--sh:#808080;--dk:#0a0a0a;--blue:#000a85;--blue2:#1084d0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Tahoma,Verdana,"Segoe UI",sans-serif;font-size:13px;overflow:hidden;background:#008080;user-select:none;-webkit-user-select:none}
+a{color:inherit}
+.desk{position:fixed;inset:0 0 34px 0;overflow:hidden;
+ background:linear-gradient(rgba(0,96,110,.55),rgba(0,40,70,.65)),url(../img/13.webp) center 30%/cover}
+.desk:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 1px,transparent 1px 3px);pointer-events:none}
+.brand{position:absolute;right:28px;bottom:24px;text-align:right;color:#fff;font-family:"Pixelify Sans";text-shadow:2px 2px 0 #000;pointer-events:none;z-index:1}
+.brand b{display:block;font-size:clamp(40px,6vw,96px);line-height:.9}.brand span{font-size:18px;opacity:.9}
+.icons{position:absolute;left:10px;top:10px;display:grid;grid-auto-flow:column;grid-template-rows:repeat(auto-fill,88px);gap:6px;height:calc(100% - 20px);z-index:2}
+.ic{width:80px;text-align:center;color:#fff;cursor:pointer;padding:4px;border:1px dotted transparent}
+.ic .g{font-size:34px;line-height:44px;filter:drop-shadow(1px 1px 0 #000)}
+.ic span{display:inline-block;padding:1px 3px;text-shadow:1px 1px 0 #000;font-size:12px;line-height:1.2}
+.ic:focus,.ic.sel{outline:none}.ic.sel span,.ic:focus span{background:var(--blue);text-shadow:none}
+.win{position:absolute;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);box-shadow:inset -1px -1px var(--sh),inset 1px 1px #dfdfdf,6px 8px 0 rgba(0,0,0,.25);padding:3px;min-width:240px;display:flex;flex-direction:column;z-index:10}
+.win.hide{display:none}
+.tb{background:linear-gradient(90deg,#808080,#b5b5b5);color:#dcdcdc;padding:3px 3px 3px 6px;display:flex;align-items:center;gap:6px;cursor:move;font-weight:700;font-size:12.5px;touch-action:none}
+.win.act .tb{background:linear-gradient(90deg,var(--blue),var(--blue2));color:#fff}
+.tb .t{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb button,.btn{font:inherit;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);box-shadow:inset -1px -1px var(--sh);cursor:pointer;color:#000}
+.tb button{width:18px;height:16px;font-size:11px;line-height:10px;font-weight:700;padding:0}
+.btn{padding:5px 16px;text-decoration:none;display:inline-block}.btn:active,.tb button:active{border-color:var(--dk) var(--hi) var(--hi) var(--dk)}
+.btn.def{outline:1px solid #000;outline-offset:-5px;font-weight:700}
+.menu{display:flex;gap:14px;padding:3px 6px;font-size:12px}.menu u{text-decoration:underline}
+.body{background:#fff;border:2px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);margin-top:2px;overflow:auto;flex:1;user-select:text;-webkit-user-select:text}
+.pad{padding:14px}
+.status{display:flex;gap:3px;margin-top:3px;font-size:11px}.status span{flex:1;border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);padding:2px 5px}
+h1.px{font-family:"Pixelify Sans";font-size:34px;line-height:1;margin-bottom:8px;color:var(--blue)}
+.mono{font-family:VT323,monospace;font-size:20px;line-height:1.15}
+.files{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:10px;padding:10px}
+.files figure{text-align:center;cursor:pointer;font-size:11px}.files figure div{aspect-ratio:1;overflow:hidden;border:1px solid #999;margin-bottom:3px}
+.files img{width:100%;height:100%;object-fit:cover;display:block}
+.files figure:hover figcaption{background:var(--blue);color:#fff}
+.viewer img{display:block;max-width:100%;max-height:100%;margin:auto}
+.viewer .body{background:#222;display:flex;align-items:center;justify-content:center}
+table{border-collapse:collapse;width:100%}td{padding:4px 6px;border-bottom:1px dotted #aaa}td:last-child{text-align:right;font-weight:700}
+.dlg .body{background:var(--face);border:0;display:flex;gap:14px;padding:16px 14px 10px;align-items:flex-start}
+.dlg .ico{font-size:34px}
+.dlg .row{display:flex;gap:8px;justify-content:center;padding:6px 0 10px}
+.pol{position:absolute;background:#fbfbf6;padding:10px 10px 38px;box-shadow:3px 6px 14px rgba(0,0,0,.45);cursor:grab;z-index:5;touch-action:none;width:170px}
+.pol img{width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.1) sepia(.12);pointer-events:none}
+.pol p{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:"Permanent Marker";font-size:15px;color:#222}
+.pol:active{cursor:grabbing}
+.tape{position:absolute;top:-10px;left:50%;width:70px;height:22px;background:rgba(255,240,170,.75);transform:translateX(-50%) rotate(-4deg)}
+.task{position:fixed;left:0;right:0;bottom:0;height:34px;background:var(--face);border-top:2px solid var(--hi);display:flex;align-items:center;gap:4px;padding:2px 4px;z-index:1000}
+.start{font-weight:700;display:flex;align-items:center;gap:5px;padding:3px 8px}
+.start i{font-style:normal;font-family:"Pixelify Sans";background:linear-gradient(135deg,#ff3b00,#ffb000);color:#fff;padding:0 4px;font-size:12px}
+.tasks{display:flex;gap:3px;flex:1;overflow:hidden}.tasks .btn{padding:3px 8px;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left;font-size:12px}
+.tasks .btn.on{border-color:var(--dk) var(--hi) var(--hi) var(--dk);background:#dcdcdc;font-weight:700}
+.tray{border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);padding:4px 10px;font-size:12px;display:flex;gap:10px;align-items:center}
+.tray a{text-decoration:none}
+.smenu{position:fixed;left:2px;bottom:34px;width:250px;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);display:none;z-index:1001;padding:2px 2px 2px 30px}
+.smenu:before{content:"NewHeights 98";position:absolute;left:2px;top:2px;bottom:2px;width:26px;background:linear-gradient(0deg,var(--blue),var(--blue2));color:#fff;writing-mode:vertical-rl;transform:rotate(180deg);font-family:"Pixelify Sans";font-size:18px;padding:6px 0;text-align:left}
+.smenu.on{display:block}.smenu a{display:flex;gap:10px;align-items:center;padding:8px 10px;text-decoration:none;color:#000;cursor:pointer}.smenu a:hover{background:var(--blue);color:#fff}
+.smenu hr{border:0;border-top:1px solid var(--sh);border-bottom:1px solid #fff;margin:3px 0}
+.marq{overflow:hidden;white-space:nowrap;background:#000;color:#0f0;font-family:VT323;font-size:20px;padding:2px 0}
+.marq span{display:inline-block;padding-left:100%;animation:mq 22s linear infinite}@keyframes mq{to{transform:translateX(-100%)}}
+.blink{animation:bk 1s steps(2) infinite}@keyframes bk{50%{opacity:0}}
+@media(max-width:760px){body{overflow:auto}.desk{position:relative;inset:auto;min-height:100vh;padding:10px 10px 60px;display:flex;flex-direction:column;gap:14px;overflow:visible}
+ .icons{position:static;grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-template-rows:none;height:auto}.ic{width:auto}
+ .win{position:relative!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important}.win .body{max-height:none}
+ .pol{position:relative!important;left:auto!important;top:auto!important;margin:10px auto}.brand{position:static;text-align:center;margin:20px 0}}
+</style></head><body>
+<main class="desk" id="desk">
+ <div class="icons">
+  <div class="ic" tabindex="0" data-open="about"><div class="g">🏢</div><span>the office</span></div>
+  <div class="ic" tabindex="0" data-open="photos"><div class="g">📁</div><span>Photos (19)</span></div>
+  <div class="ic" tabindex="0" data-open="rates"><div class="g">📄</div><span>rates.txt</span></div>
+  <div class="ic" tabindex="0" data-open="uses"><div class="g">🎬</div><span>Uses.exe</span></div>
+  <div class="ic" tabindex="0" data-open="book"><div class="g">💾</div><span>BOOK.EXE</span></div>
+  <div class="ic" tabindex="0" data-open="sky"><div class="g">🌈</div><span>skyline.jpg</span></div>
+  <div class="ic" tabindex="0" data-href="https://www.instagram.com/newheightsstudiojc/"><div class="g">📸</div><span>Instagram</span></div>
+  <div class="ic" tabindex="0" data-href="https://www.facebook.com/newheightsstudiojc"><div class="g">🌐</div><span>Facebook</span></div>
+  <div class="ic" tabindex="0" data-open="bin"><div class="g">🗑️</div><span>Recycle Bin</span></div>
+ </div>
+ <div class="brand"><b>the office</b><span>New Heights Studio · Jersey City</span></div>
+
+ <section class="win" id="about" data-title="Welcome to the office" style="left:120px;top:36px;width:440px">
+  <div class="tb"><span>🏢</span><span class="t">Welcome to the office</span><button data-min>_</button><button data-max>□</button><button data-x>×</button></div>
+  <div class="menu"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>V</u>iew</span><span><u>H</u>elp</span></div>
+  <div class="body pad"><h1 class="px">New Heights Studio</h1>
+   <p style="margin-bottom:8px">Everyone just calls it <b>“the office.”</b> It’s a 500 sq ft natural-light loft in The Heights, Jersey City — with downtown Manhattan and One World Trade sitting right in the window.</p>
+   <p style="margin-bottom:12px">Exposed vintage white brick. A variety of mounted backdrops and materials. An 8-seat conference table. 15 ft ceilings. Lighting kit and a host/assistant with every booking.</p>
+   <div class="marq"><span>★ PHOTO ★ VIDEO ★ PRODUCTION ★ PODCAST (BYO MICS) ★ CONTENT ★ MEETINGS &amp; WORKSHOPS ★ $75–99/HR ★ 3 HR MIN ★ BOOK ON PEERSPACE ★</span></div>
+   <p style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn def" href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">Book on Peerspace…</a><button class="btn" data-open="photos">Browse photos</button></p></div>
+  <div class="status"><span>1 object(s) · 500 sq ft</span><span>The Heights, JC</span></div>
+ </section>
+
+ <section class="win" id="photos" data-title="C:\Office\Photos" style="left:590px;top:60px;width:470px;height:380px">
+  <div class="tb"><span>📁</span><span class="t">C:\Office\Photos</span><button data-min>_</button><button data-max>□</button><button data-x>×</button></div>
+  <div class="menu"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>V</u>iew</span><span>F<u>a</u>vorites</span></div>
+  <div class="body"><div class="files" id="files"></div></div>
+  <div class="status"><span>19 object(s)</span><span>Double-click to open</span></div>
+ </section>
+
+ <section class="win" id="rates" data-title="rates.txt - Notepad" style="left:180px;top:410px;width:330px">
+  <div class="tb"><span>📄</span><span class="t">rates.txt - Notepad</span><button data-min>_</button><button data-max>□</button><button data-x>×</button></div>
+  <div class="body pad mono">RATE....... $75–99/hr<br>MINIMUM.... 3 hours<br>CAPACITY... up to 10<br>CEILINGS... 15 ft<br>INCLUDED... lights + host<br>BOOKING.... peerspace only<br><span class="blink">█</span></div>
+ </section>
+
+ <section class="win dlg" id="book" data-title="BOOK.EXE" style="left:calc(50% - 170px);top:calc(50% + 30px);width:340px">
+  <div class="tb"><span>💾</span><span class="t">BOOK.EXE</span><button data-x>×</button></div>
+  <div class="body"><div class="ico">❓</div><div>Ready to book a session at the office?<br><br><b>$75–99/hr · 3 hr minimum.</b><br>All bookings happen on Peerspace.</div></div>
+  <div class="row"><a class="btn def" href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">Yes, book it</a><button class="btn" data-x>Later</button></div>
+ </section>
+
+ <section class="win hide" id="uses" data-title="Uses.exe" style="left:240px;top:90px;width:420px">
+  <div class="tb"><span>🎬</span><span class="t">Uses.exe</span><button data-min>_</button><button data-max>□</button><button data-x>×</button></div>
+  <div class="body pad"><table>
+   <tr><td>📷 Photo</td><td>portraits · fashion · product</td></tr>
+   <tr><td>🎥 Video</td><td>music videos · interviews · brand</td></tr>
+   <tr><td>🎬 Production</td><td>crews up to 10</td></tr>
+   <tr><td>🎙️ Podcast</td><td>8-seat table · BYO mics/recorders</td></tr>
+   <tr><td>📱 Content</td><td>Reels · TikTok · YouTube</td></tr>
+   <tr><td>🤝 Meetings</td><td>workshops · pre-pro · teams</td></tr></table>
+   <p style="margin-top:12px"><a class="btn def" href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">Book on Peerspace…</a></p></div>
+ </section>
+
+ <section class="win viewer hide" id="sky" data-title="skyline.jpg" style="left:330px;top:30px;width:380px;height:520px">
+  <div class="tb"><span>🌈</span><span class="t" id="vt">skyline.jpg - Image Viewer</span><button data-min>_</button><button data-max>□</button><button data-x>×</button></div>
+  <div class="body"><img id="vimg" src="../img/13.webp" alt="Rainbow over downtown Manhattan from the office window" loading="lazy"></div>
+  <div class="status"><span id="vs">View from the office · One World Trade</span></div>
+ </section>
+
+ <section class="win dlg hide" id="bin" data-title="Recycle Bin" style="left:140px;top:200px;width:320px">
+  <div class="tb"><span>🗑️</span><span class="t">Recycle Bin</span><button data-x>×</button></div>
+  <div class="body"><div class="ico">🗑️</div><div class="mono">boring_white_studio.psd<br>fluorescent_lights.cfg<br>no_view.jpg</div></div>
+  <div class="row"><button class="btn def" data-x>OK</button></div>
+ </section>
+
+ <div class="pol" style="left:1090px;top:40px;transform:rotate(6deg)"><span class="tape"></span><img src="../img/t/18.webp" alt="Guitarist on white brick"><p>brick wall 🤘</p></div>
+ <div class="pol" style="left:1120px;top:330px;transform:rotate(-7deg)"><span class="tape"></span><img src="../img/t/03.webp" alt="8-seat conference table"><p>meeting @ the office</p></div>
+ <div class="pol" style="left:600px;top:470px;transform:rotate(3deg)"><span class="tape"></span><img src="../img/t/13.webp" alt="Rainbow over Manhattan"><p>our view lol</p></div>
+</main>
+
+<div class="smenu" id="smenu">
+ <a href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener">💾 <b>Book on Peerspace</b></a><hr>
+ <a data-open="about">🏢 the office</a><a data-open="photos">📁 Photos</a><a data-open="uses">🎬 Uses</a><a data-open="rates">📄 Rates</a><a data-open="sky">🌈 Skyline</a><hr>
+ <a href="https://www.instagram.com/newheightsstudiojc/" target="_blank" rel="noopener">📸 Instagram</a><a href="https://www.facebook.com/newheightsstudiojc" target="_blank" rel="noopener">🌐 Facebook</a><a href="../">⏻ All concepts…</a>
+</div>
+<footer class="task"><button class="btn start" id="start"><i>NH</i>Start</button><div class="tasks" id="tasks"></div><div class="tray"><a href="https://www.peerspace.com/pages/listings/6ae4f4368b9999ba346769e4" target="_blank" rel="noopener" title="Book">📅</a><span>🔊</span><span id="clk">12:00 PM</span></div></footer>
+<script>
+const caps=["seamless_strobe","black_backdrop","conference_table","loft_wide","lounge","production_desk","krk_desk","marshall_harley","harley","keys_curtains","rooftops","freight_elevator","skyline_rainbow","full_room","tethered","drum_session","wicker_chair","guitarist","couch_portrait"];
+const pad=n=>String(n).padStart(2,'0'),$=id=>document.getElementById(id);
+let z=20;const wins=[...document.querySelectorAll('.win')],tasks=$('tasks');
+function focusW(w){wins.forEach(x=>x.classList.remove('act'));w.classList.add('act');w.style.zIndex=++z;renderTasks()}
+function openW(id){const w=$(id);if(!w)return;w.classList.remove('hide');focusW(w);$('smenu').classList.remove('on')}
+function renderTasks(){tasks.innerHTML='';wins.filter(w=>!w.classList.contains('closed')&&(!w.classList.contains('hide')||w.dataset.min)).forEach(w=>{const b=document.createElement('button');b.className='btn'+(w.classList.contains('act')&&!w.classList.contains('hide')?' on':'');b.textContent=w.dataset.title;b.onclick=()=>{delete w.dataset.min;openW(w.id)};tasks.appendChild(b)})}
+wins.forEach(w=>{
+ w.addEventListener('pointerdown',()=>focusW(w));
+ w.querySelectorAll('[data-x]').forEach(b=>b.onclick=e=>{e.stopPropagation();w.classList.add('hide');delete w.dataset.min;renderTasks()});
+ w.querySelectorAll('[data-min]').forEach(b=>b.onclick=e=>{e.stopPropagation();w.dataset.min=1;w.classList.add('hide');w.classList.remove('act');renderTasks()});
+ w.querySelectorAll('[data-max]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(w.dataset.prev){w.style.cssText=w.dataset.prev;delete w.dataset.prev}else{w.dataset.prev=w.style.cssText;Object.assign(w.style,{left:'0',top:'0',width:'100%',height:'100%'})}w.style.zIndex=++z});
+ drag(w,w.querySelector('.tb'));
+});
+document.querySelectorAll('.pol').forEach(p=>drag(p,p,true));
+function drag(el,h,pol){h.addEventListener('pointerdown',e=>{if(innerWidth<=760||e.target.closest('button'))return;e.preventDefault();const r=el.getBoundingClientRect(),dr=$('desk').getBoundingClientRect(),ox=e.clientX-r.left,oy=e.clientY-r.top;el.style.zIndex=++z;if(pol)el.style.transform='rotate(0deg) scale(1.06)';
+ const mv=ev=>{el.style.left=Math.max(-r.width+60,Math.min(dr.width-60,ev.clientX-dr.left-ox))+'px';el.style.top=Math.max(0,Math.min(dr.height-30,ev.clientY-dr.top-oy))+'px'};
+ const up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up);if(pol)el.style.transform=`rotate(${(Math.random()*16-8).toFixed(1)}deg)`};
+ addEventListener('pointermove',mv);addEventListener('pointerup',up)})}
+document.querySelectorAll('[data-open]').forEach(el=>{const f=()=>openW(el.dataset.open);if(el.classList.contains('ic')){el.ondblclick=f;el.onclick=e=>{document.querySelectorAll('.ic').forEach(i=>i.classList.remove('sel'));el.classList.add('sel');if(matchMedia('(hover:none)').matches)f()};el.onkeydown=e=>{if(e.key==='Enter')f()}}else el.onclick=f});
+document.querySelectorAll('.ic[data-href]').forEach(el=>{const f=()=>open(el.dataset.href,'_blank','noopener');el.ondblclick=f;el.onkeydown=e=>{if(e.key==='Enter')f()};el.onclick=()=>{document.querySelectorAll('.ic').forEach(i=>i.classList.remove('sel'));el.classList.add('sel');if(matchMedia('(hover:none)').matches)f()}});
+const F=$('files');caps.forEach((c,i)=>{const n=pad(i+1),f=document.createElement('figure');f.innerHTML=`<div><img src="../img/t/${n}.webp" alt="${c.replace(/_/g,' ')}" loading="lazy"></div><figcaption>${c}.jpg</figcaption>`;const o=()=>{$('vimg').src=`../img/${n}.webp`;$('vt').textContent=c+'.jpg - Image Viewer';$('vs').textContent=`${i+1} of 19 · New Heights Studio`;openW('sky')};f.ondblclick=o;f.onclick=()=>{if(matchMedia('(hover:none)').matches)o()};F.appendChild(f)});
+$('start').onclick=e=>{e.stopPropagation();$('smenu').classList.toggle('on')};document.addEventListener('click',e=>{if(!e.target.closest('#smenu'))$('smenu').classList.remove('on')});
+const tick=()=>{$('clk').textContent=new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})};tick();setInterval(tick,15000);
+// scale initial layout to viewport width
+if(innerWidth>760){const sx=innerWidth/1320;document.querySelectorAll('.pol').forEach(p=>{p.style.left=parseFloat(p.style.left)*Math.min(1,sx)+'px'});$('photos').style.left=Math.min(590,innerWidth*.45)+'px'}
+focusW($('book'));
+</script></body></html>
